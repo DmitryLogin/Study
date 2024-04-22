@@ -1,8 +1,10 @@
-def def_test(a, b):
-    print(a)
-    print(b)
+def def_test():
+    a = 'hi'
+    b = 11
+    print(a, b)
+    
 
-def_test('hi', 11)
+def_test()
 
 def def_test2(a, b, c):
     print(a, b, c)
