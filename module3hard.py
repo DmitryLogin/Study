@@ -1,4 +1,3 @@
-
 data_structure = [
     [1, 2, 3],
     {'a': 4, 'b': 5},
@@ -7,50 +6,26 @@ data_structure = [
     ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
 
+list_1 = []
 
-def fun_1(*args):
+
+def calculate_structure_sum(*args):
     for i in args:
         if isinstance(i, str):
-            print(len(i))
-        if isinstance(i, int):
-            print(i)
-        if isinstance(i, list):
+            list_1.append(len(i))
+        elif isinstance(i, int):
+            list_1.append(i)
+        elif isinstance(i, list):
             for j in i:
-                if isinstance(j, str):
-                    print(len(i))
-                if isinstance(j, int):
-                    print(j)
-        if isinstance(i, dict):
+                calculate_structure_sum(j)
+        elif isinstance(i, dict):
             for j in i:
-                if isinstance(j, str):
-                    print(len(i))
-                if isinstance(j, int):
-                    print(j)
-        if isinstance(i, tuple):
+                calculate_structure_sum(j)
+        else:
             for j in i:
-                if isinstance(j, str):
-                    print(len(i))
-                if isinstance(j, int):
-                    print(j)
-def calculate_structure_sum(args):
-    for j in args:
-        if isinstance(j, str):
-            fun_1(j)
-        if isinstance(j, int):
-            fun_1(j)
-        if isinstance(j, list):
-            fun_1(j)
-        if isinstance(j, dict):
-            fun_1(j)
-        if isinstance(j, tuple):
-            fun_1(j)
+                calculate_structure_sum(j)
+    return sum(list_1)
 
 
-
-
-
-result =calculate_structure_sum(data_structure)
-
+result = calculate_structure_sum(data_structure)
 print(result)
-
-
